@@ -1,0 +1,53 @@
+{
+  "name": "@web3-systems/multichain-client",
+  "description": "Manage connections to multiple EVM chains",
+  "version": "0.1.0-beta.1",
+  "license": "MIT",
+  "author": "Kames Geraghty",
+  "module": "dist/multichain-client.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "docs": "yarn typedoc src/index.ts --out docs"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "@ethersproject/providers": "^5.5.1",
+    "axios": "^0.24.0",
+    "lokijs": "^1.5.12",
+    "query-string": "^7.0.1"
+  },
+  "devDependencies": {
+    "@types/lokijs": "^1.5.7",
+    "@types/mocha": "^9.0.0",
+    "husky": "^7.0.4",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typedoc": "^0.22.10",
+    "typedoc-plugin-markdown": "^3.11.8",
+    "typescript": "^4.5.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  }
+}
