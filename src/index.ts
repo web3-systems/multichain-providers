@@ -1,1 +1,3 @@
-export { default as MultichainClient } from './MultichainClient';
+import MultichainProviders from './MultichainProviders';
+export { MultichainProviders };
+export default MultichainProviders;
