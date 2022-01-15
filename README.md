@@ -1,4 +1,4 @@
-# Multichain Providers
+# ⛓️ Multichain Providers
 ![ts](https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555)
 ![Build](https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg)
 [![GPLv3 license](https://img.shields.io/badge/License-MIT-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
@@ -35,15 +35,21 @@ The package is setup using the [TSDX zero-config CLI](https://tsdx.io/) which in
 
 # Quickstart 
 
-The MultichainProvider class wraps the `@ethersproject/providers` Provider function calls.
+The MultichainProvider class wraps the `@ethersproject/providers` `Provider` class.
 
-Updating core function signatures with `chainId` argument to specify a target network/blockchain.
+Updating function signatures with `chainId` to specify a target network.
 
 **Example**
 
-`provider.getBalance('0x000.0000')` becomes `multiprovider.etBalance(1, '0x000.0000');`
+`provider.getBalance('0x000.0000')` 
 
-Utility functions like `getTransactions` and `getLogsDecoded` have been included to encapsulate common method chaining. 
+is now... 
+
+`multiprovider.etBalance(1, '0x000.0000');`
+
+### **Additional Utlity Functions**
+
+Additoional functions like `getTransactions` and `getLogsDecoded` have been added to simplify common method chaining. Instead of fetching event logs and decoding the values separately, instead a single class method can be called.
 
 ## Connect New Provider
 ```ts
