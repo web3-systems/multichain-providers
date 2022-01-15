@@ -18,7 +18,9 @@ class MultichainProviders {
   /* -------------------------------------------------- */
   constructor(chainId?: number, urlOrKey?: string, type?: string) {
     if (chainId) this.chainIdDefault = chainId;
-    if (chainId && urlOrKey) {this.connect(chainId, urlOrKey, type);} else {
+    if (chainId && urlOrKey) {
+      this.connect(chainId, urlOrKey, type);
+    } else {
       this.providers[this.chainIdDefault] = getDefaultProvider();
     }
     return this;
@@ -44,6 +46,7 @@ class MultichainProviders {
         provider = new InfuraProvider(chainId, urlOrKey);
         this.providers[chainId] = provider;
         break;
+      case 'etherscan':
       case 'chainscan':
         provider = new EtherscanProvider(chainId, urlOrKey);
         this.providers[chainId] = provider;
@@ -63,13 +66,13 @@ class MultichainProviders {
   /* -------------------------------------------------- */
   async getLogsDecoded(
     chainId: number,
-    contractInterface: Interface,
+    interface_: Interface,
     filter: Filter,
     fragment: EventFragment
   ) {
     return (await this.getProvider(chainId).getLogs(filter)).map(eventLog => ({
       log: eventLog,
-      parsed: contractInterface.decodeEventLog(
+      parsed: interface_.decodeEventLog(
         fragment,
         eventLog.data,
         eventLog.topics
@@ -79,7 +82,7 @@ class MultichainProviders {
 
   async getTransactions(chainId: number, address: string) {
     const etherscanProvider = this.getProvider(chainId);
-    if(etherscanProvider.constructor.name != 'EtherscanProvider') {
+    if (etherscanProvider.constructor.name !== 'EtherscanProvider') {
       throw new Error('getTransactions: Requires valid EtherscanProvider');
     }
     // @ts-ignore - getHistory exists on the provider but is not in the type definition
@@ -87,7 +90,7 @@ class MultichainProviders {
   }
 
   /* -------------------------------------------------- */
-  // Ethers Wrappers
+  // Ethers Provider Function Wrapping
   /* -------------------------------------------------- */
 
   // Account Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--account-methods)

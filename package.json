@@ -1,10 +1,21 @@
 {
-  "name": "@web3-systems/multichain-client",
-  "description": "Manage connections to multiple EVM chains",
-  "version": "0.1.0-beta.1",
-  "license": "MIT",
+  "name": "@web3-systems/multichain-providers",
+  "description": "Multichain Ethereum Virtual Machine (EVM) provider management class",
   "author": "Kames Geraghty",
-  "module": "dist/multichain-client.esm.js",
+  "license": "MIT",
+  "version": "0.1.0-beta.1",
+  "homepage": "https://github.com/web3-systems/multichain-providers",
+  "bugs": {
+    "url" : "https://github.com/web3-systems/multichain-providers/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "module": "dist/multichain-providers.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -13,26 +24,16 @@
     "test": "tsdx test",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
+    "clean": "jest --clearCache",
     "docs": "yarn typedoc src/index.ts --out docs"
-  },
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
   },
   "peerDependencies": {},
   "dependencies": {
     "@ethersproject/abi": "^5.5.0",
     "@ethersproject/contracts": "^5.5.0",
-    "@ethersproject/providers": "^5.5.1",
-    "axios": "^0.24.0",
-    "lokijs": "^1.5.12",
-    "query-string": "^7.0.1"
+    "@ethersproject/providers": "^5.5.1"
   },
   "devDependencies": {
-    "@types/lokijs": "^1.5.7",
     "@types/mocha": "^9.0.0",
     "husky": "^7.0.4",
     "tsdx": "^0.14.1",
