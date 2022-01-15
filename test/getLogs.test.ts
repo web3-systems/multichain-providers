@@ -2,12 +2,9 @@ import { Interface } from '@ethersproject/abi';
 import { MultichainProviders } from '../src';
 import Contract from './abi/PrizeDistributor.json';
 
-const apikey = process.env.INFURA_API_KEY || '';
-
 describe('getLogs', () => {
   it('should fetch event logs', async () => {
     let client = new MultichainProviders();
-    client.connect(1, apikey, 'infura');
     const contract = new Interface(Contract.abi);
     const filter = {
       fromBlock: 14000122,
@@ -22,7 +19,6 @@ describe('getLogs', () => {
 
   it('should fetch parsed event logs', async () => {
     let client = new MultichainProviders();
-    client.connect(1, apikey, 'infura');
     const contract = new Interface(Contract.abi);
     const filter = {
       fromBlock: 14000122,
