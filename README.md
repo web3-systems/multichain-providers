@@ -1,9 +1,9 @@
 # ⛓️ Multichain Providers
 ![ts](https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555)
-![Build](https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg)
 [![GPLv3 license](https://img.shields.io/badge/License-MIT-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+![Build](https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg)
 
-The `@web3-systems/multichain-providers` [node module](https://www.npmjs.com/package/@pooltogether/v4-utils-js) simplifies multi-EVM-chain provider read/writes.
+The `@web3-systems/multichain-providers` [node module](https://www.npmjs.com/package/@web3-systems/multichain-providers) simplifies multi-EVM-chain provider read/writes.
 
 # 💾 Installation
 
@@ -33,7 +33,7 @@ The package is setup using the [TSDX zero-config CLI](https://tsdx.io/) which in
 - Prettier
 - ESLint
 
-# Quickstart 
+# 🌐 Quickstart 
 
 The MultichainProvider class wraps the `@ethersproject/providers` `Provider` class.
 
