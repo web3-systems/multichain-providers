@@ -66,8 +66,8 @@ class MultichainProviders {
   /* -------------------------------------------------- */
   async getLogsDecoded(
     chainId: number,
-    interface_: Interface,
     filter: Filter,
+    interface_: Interface,
     fragment: EventFragment
   ) {
     return (await this.getProvider(chainId).getLogs(filter)).map(eventLog => ({

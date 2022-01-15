@@ -33,9 +33,9 @@ describe('getLogs', () => {
 
     const events = await client.getLogsDecoded(
       1,
-      contract,
       // @ts-ignore
       filter,
+      contract,
       contract.events['ClaimedDraw(address,uint32,uint256)']
     );
 

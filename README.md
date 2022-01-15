@@ -3,7 +3,7 @@
 ![Build](https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg)
 [![GPLv3 license](https://img.shields.io/badge/License-MIT-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
 
-The `@web3-systems/multichain-providers` [node module package](https://www.npmjs.com/package/@pooltogether/v4-utils-js) simplifies multi-EVM-chain provider read and writes.
+The `@web3-systems/multichain-providers` [node module](https://www.npmjs.com/package/@pooltogether/v4-utils-js) simplifies multi-EVM-chain provider read/writes.
 
 # 💾 Installation
 
@@ -45,11 +45,9 @@ Updating function signatures with `chainId` to specify a target network.
 
 is now... 
 
-`multiprovider.etBalance(1, '0x000.0000');`
+`multiprovider.getBalance(1, '0x000.0000');`
 
-### **Additional Utlity Functions**
-
-Additoional functions like `getTransactions` and `getLogsDecoded` have been added to simplify common method chaining. Instead of fetching event logs and decoding the values separately, instead a single class method can be called.
+The function signature (as you can see) now consumes `chainId` in the first argument position. If a provider has been configured for the chainId the provider will be used when fetching the balance.
 
 ## Connect New Provider
 ```ts
@@ -82,4 +80,26 @@ import { MultichainProviders } from '@web3-systems/multichain-providers';
 let apikey = 'etherscan/polygonscan/snowtrace-apikey'
 let client = new MultichainProviders(1, apikey, 'chainscan');
 const transactions: Transactions[] = await client.getTransactions(1, '0x000...000');
+```
+
+# **Utlity Functions**
+
+Utility functions like `getTransactions` (specific to Etherscan) and `getLogsDecoded` have been included to simplify common method chaining and developer objectives.
+
+For example, instead of fetching event logs and decoding separately, a single function can be called.
+
+```ts
+const events = await client.getLogsDecoded(1,filter,contract,fragment);
+/*
+[
+    {
+        log: {...},
+        parsed: {...}
+    },
+    {
+        log: {...},
+        parsed: {...}
+    },
+]
+*/
 ```
