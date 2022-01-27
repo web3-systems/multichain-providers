@@ -3,7 +3,7 @@
   "description": "Multichain Ethereum Virtual Machine (EVM) provider management class",
   "author": "Kames Geraghty",
   "license": "MIT",
-  "version": "0.1.0-beta.1",
+  "version": "0.1.0-beta.2",
   "homepage": "https://github.com/web3-systems/multichain-providers",
   "bugs": {
     "url" : "https://github.com/web3-systems/multichain-providers/issues"

@@ -94,49 +94,49 @@ class MultichainProviders {
   /* -------------------------------------------------- */
 
   // Account Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--account-methods)
-  async getBalance(chainId: number, address: string) {
+  async getBalance(address: string, chainId: number) {
     return this.getProvider(chainId).getBalance(address);
   }
 
-  async getCode(chainId: number, address: string) {
+  async getCode(address: string, chainId: number) {
     return this.getProvider(chainId).getCode(address);
   }
 
-  async getStorageAt(chainId: number, address: string, position: string) {
+  async getStorageAt(address: string, position: string, chainId: number) {
     return this.getProvider(chainId).getStorageAt(address, position);
   }
 
-  async getTransactionCount(chainId: number, address: string) {
+  async getTransactionCount(address: string, chainId: number) {
     return this.getProvider(chainId).getTransactionCount(address);
   }
 
   getNonce = this.getTransactionCount;
 
   // Block Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--block-methods)
-  async getBlock(chainId: number, block: number) {
+  async getBlock(block: number, chainId: number) {
     return this.getProvider(chainId).getBlock(block);
   }
 
-  async getBlockWithTransactions(chainId: number, block: number) {
+  async getBlockWithTransactions(block: number, chainId: number) {
     return this.getProvider(chainId).getBlock(block);
   }
 
   // ENS Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--ens-methods)
-  async getResolver(chainId: number, name: string) {
+  async getResolver(name: string, chainId: number) {
     // @ts-ignore - getResolver is not in the type definition but SHOULD be
     return this.getProvider(chainId).getResolver(name);
   }
 
-  async lookupAddress(chainId: number, name: string) {
+  async lookupAddress(name: string, chainId: number) {
     return this.getProvider(chainId).lookupAddress(name);
   }
 
-  async resolveName(chainId: number, name: string) {
+  async resolveName(name: string, chainId: number) {
     return this.getProvider(chainId).resolveName(name);
   }
 
   // Logs Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--log-methods)
-  async getLogs(chainId: number, filter: Filter) {
+  async getLogs(filter: Filter, chainId: number) {
     return this.getProvider(chainId).getLogs(filter);
   }
 
@@ -158,27 +158,27 @@ class MultichainProviders {
   }
 
   // Transaction Methods (https://docs.ethers.io/v5/api/providers/provider/#Provider--transaction-methods)
-  async call(chainId: number, transaction: any) {
+  async call(transaction: any, chainId: number) {
     return this.getProvider(chainId).call(transaction);
   }
 
-  async estimateGas(chainId: number, transaction: any) {
+  async estimateGas(transaction: any, chainId: number) {
     return this.getProvider(chainId).estimateGas(transaction);
   }
 
-  async getTransaction(chainId: number, hash: string) {
+  async getTransaction(hash: string, chainId: number) {
     return this.getProvider(chainId).getTransaction(hash);
   }
 
-  async getTransactionReceipt(chainId: number, hash: string) {
+  async getTransactionReceipt(hash: string, chainId: number) {
     return this.getProvider(chainId).getTransactionReceipt(hash);
   }
 
-  async sendTransaction(chainId: number, transaction: any) {
+  async sendTransaction(transaction: any, chainId: number) {
     return this.getProvider(chainId).sendTransaction(transaction);
   }
 
-  async waitForTransaction(chainId: number, hash: string) {
+  async waitForTransaction(hash: string, chainId: number) {
     return this.getProvider(chainId).waitForTransaction(hash);
   }
 }
