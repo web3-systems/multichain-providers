@@ -1,0 +1,84 @@
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@web3-systems/multichain-providers</title><meta name="description" content="Documentation for @web3-systems/multichain-providers"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@web3-systems/multichain-providers</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@web3-systems/multichain-providers</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#multichain-database" id="multichain-database" style="color: inherit; text-decoration: none;">
+  <h1>Multichain Database</h1>
+</a>
+<p><img src="https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg" alt="CI">
+<img src="https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555" alt="TS">
+<a href="http://perso.crans.org/besson/LICENSE.html"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="GPLv3 license"></a>
+<a href="https://npmjs.org/package/@web3-systems/multichain-providers"><img src="https://img.shields.io/npm/v/@web3-systems/multichain-providers.svg" alt="Version"></a>
+<a href="https://npmjs.org/package/@web3-systems/multichain-providers"><img src="https://img.shields.io/npm/dw/@web3-systems/multichain-providers.svg" alt="Downloads/week"></a></p>
+
+<a href="#💾-installation" id="💾-installation" style="color: inherit; text-decoration: none;">
+  <h3>💾 Installation</h3>
+</a>
+<pre><code class="language-sh"><span class="hl-0">npm install @web3-systems/multichain-providers</span>
+</code></pre>
+<pre><code class="language-sh"><span class="hl-0">yarn add @web3-systems/multichain-providers</span>
+</code></pre>
+<pre><code class="language-sh"><span class="hl-0">git clone https://github.com/web3-systems/multichain-providers</span>
+</code></pre>
+
+<a href="#🏎️-nbspquickstart" id="🏎️-nbspquickstart" style="color: inherit; text-decoration: none;">
+  <h3>🏎️ &nbsp;Quickstart</h3>
+</a>
+<p>The MultichainProvider class wraps the <code>@ethersproject/providers</code> <code>Provider</code> class.</p>
+<p>Updating function signatures with <code>chainId</code> to specify a target network.</p>
+<p><strong>Example</strong></p>
+<p><code>provider.getBalance(&#39;0x000.0000&#39;)</code> </p>
+<p>is now... </p>
+<p><code>multiprovider.getBalance(&#39;0x000.0000&#39;, 1);</code></p>
+<p>The function signature (as you can see) now consumes <code>chainId</code> in the first argument position. If a provider has been configured for the chainId the provider will be used when fetching the balance.</p>
+
+<a href="#connect-new-provider" id="connect-new-provider" style="color: inherit; text-decoration: none;">
+  <h2>Connect New Provider</h2>
+</a>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">MultichainProviders</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@web3-systems/multichain-providers&#39;</span><span class="hl-0">;</span><br/><span class="hl-4">let</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">MultichainProviders</span><span class="hl-0">(); </span><span class="hl-6">// by default connect to Ethereum mainnet via Infura</span><br/><span class="hl-4">let</span><span class="hl-0"> </span><span class="hl-2">jsonRpcURL</span><span class="hl-0"> = </span><span class="hl-3">&#39;localhost:8545&#39;</span><br/><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-5">connect</span><span class="hl-0">(</span><span class="hl-7">1</span><span class="hl-0">, </span><span class="hl-2">jsonRpcURL</span><span class="hl-0">); </span><span class="hl-6">// sets chainId to use localhost as the endpoint </span>
+</code></pre>
+
+<a href="#get-balance" id="get-balance" style="color: inherit; text-decoration: none;">
+  <h2>Get Balance</h2>
+</a>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">BigNumber</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@ethersproject/bignumber&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">MultichainProviders</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@web3-systems/multichain-providers&#39;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">client</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">MultichainProviders</span><span class="hl-0">();</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">balance</span><span class="hl-0">:</span><span class="hl-9">BigNumber</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-5">getBalance</span><span class="hl-0">(</span><span class="hl-3">&#39;0x000...000&#39;</span><span class="hl-0">, </span><span class="hl-7">1</span><span class="hl-0">);</span>
+</code></pre>
+
+<a href="#get-provider" id="get-provider" style="color: inherit; text-decoration: none;">
+  <h2>Get Provider</h2>
+</a>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">Provider</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@ethersproject/providers&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">MultichainProviders</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@web3-systems/multichain-providers&#39;</span><span class="hl-0">;</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">client</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">MultichainProviders</span><span class="hl-0">();</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">provider</span><span class="hl-0">:</span><span class="hl-9">Provider</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-5">getProvider</span><span class="hl-0">(</span><span class="hl-7">1</span><span class="hl-0">);</span>
+</code></pre>
+
+<a href="#get-transaction-history-using-etherscanprovider" id="get-transaction-history-using-etherscanprovider" style="color: inherit; text-decoration: none;">
+  <h2>Get Transaction History using EtherscanProvider</h2>
+</a>
+<pre><code class="language-ts"><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">Transactions</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@ethersproject/contracts&#39;</span><span class="hl-0">;</span><br/><span class="hl-1">import</span><span class="hl-0"> { </span><span class="hl-2">MultichainProviders</span><span class="hl-0"> } </span><span class="hl-1">from</span><span class="hl-0"> </span><span class="hl-3">&#39;@web3-systems/multichain-providers&#39;</span><span class="hl-0">;</span><br/><span class="hl-4">let</span><span class="hl-0"> </span><span class="hl-2">apikey</span><span class="hl-0"> = </span><span class="hl-3">&#39;etherscan/polygonscan/snowtrace-apikey&#39;</span><br/><span class="hl-4">let</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0"> = </span><span class="hl-4">new</span><span class="hl-0"> </span><span class="hl-5">MultichainProviders</span><span class="hl-0">(</span><span class="hl-7">1</span><span class="hl-0">, </span><span class="hl-2">apikey</span><span class="hl-0">, </span><span class="hl-3">&#39;chainscan&#39;</span><span class="hl-0">);</span><br/><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">transactions</span><span class="hl-0">: </span><span class="hl-9">Transactions</span><span class="hl-0">[] = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-5">getTransactions</span><span class="hl-0">(</span><span class="hl-3">&#39;0x000...000&#39;</span><span class="hl-0">, </span><span class="hl-7">1</span><span class="hl-0">);</span>
+</code></pre>
+
+<a href="#📖-nbspoverview" id="📖-nbspoverview" style="color: inherit; text-decoration: none;">
+  <h3>📖 &nbsp;Overview</h3>
+</a>
+<p>Coming soon...</p>
+
+<a href="#🧩-nbspexamples" id="🧩-nbspexamples" style="color: inherit; text-decoration: none;">
+  <h3>🧩 &nbsp;Examples</h3>
+</a>
+
+<a href="#utlity-functions" id="utlity-functions" style="color: inherit; text-decoration: none;">
+  <h1><strong>Utlity Functions</strong></h1>
+</a>
+<p>Utility functions like <code>getTransactions</code> (specific to Etherscan) and <code>getLogsDecoded</code> have been included to simplify common method chaining and developer objectives.</p>
+<p>For example, instead of fetching event logs and decoding separately, a single function can be called.</p>
+<pre><code class="language-ts"><span class="hl-4">const</span><span class="hl-0"> </span><span class="hl-8">events</span><span class="hl-0"> = </span><span class="hl-1">await</span><span class="hl-0"> </span><span class="hl-2">client</span><span class="hl-0">.</span><span class="hl-5">getLogsDecoded</span><span class="hl-0">(</span><span class="hl-7">1</span><span class="hl-0">,</span><span class="hl-2">filter</span><span class="hl-0">,</span><span class="hl-2">contract</span><span class="hl-0">,</span><span class="hl-2">fragment</span><span class="hl-0">);</span><br/><span class="hl-6">/*</span><br/><span class="hl-6">[</span><br/><span class="hl-6">    {</span><br/><span class="hl-6">        log: {...},</span><br/><span class="hl-6">        parsed: {...}</span><br/><span class="hl-6">    },</span><br/><span class="hl-6">    {</span><br/><span class="hl-6">        log: {...},</span><br/><span class="hl-6">        parsed: {...}</span><br/><span class="hl-6">    },</span><br/><span class="hl-6">]</span><br/><span class="hl-6">*/</span>
+</code></pre>
+
+<a href="#💻-nbspdeveloper-experience" id="💻-nbspdeveloper-experience" style="color: inherit; text-decoration: none;">
+  <h3>💻 &nbsp;Developer Experience</h3>
+</a>
+<p>The package is setup using the <a href="https://tsdx.io/">TSDX zero-config CLI</a> which includes:</p>
+<ul>
+<li>Typescript</li>
+<li>Rollup</li>
+<li>Jest</li>
+<li>Prettier</li>
+<li>ESLint</li>
+</ul>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-reference"><a href="modules.html#default" class="tsd-kind-icon">default</a></li><li class="tsd-kind-class"><a href="classes/MultichainProviders.html" class="tsd-kind-icon">Multichain<wbr/>Providers</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
