@@ -3,7 +3,7 @@
   "include": ["src", "types"],
   "typedocOptions": {
     "entryPoints": ["./src/index.ts"],
-    "entryDocument":  "index.md",
+    // "entryDocument":  "index.md",
     "out": "docs",
     "readme": "DOCUMENTATION.md",
   },
