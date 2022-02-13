@@ -29,7 +29,7 @@
     "package:watch": "tsdx watch",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf .cache",
     "clean:test": "jest --clearCache",
-    "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true",
+    "docs": "yarn typedoc --plugin typedoc-plugin-markdown --hideBreadcrumbs true --namedAnchors true --entryDocument index.md",
     "docs:html": "yarn typedoc --plugin none --out docs",
     "prepare": "husky install",
     "_postinstall": "husky install",
