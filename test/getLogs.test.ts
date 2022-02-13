@@ -2,9 +2,9 @@ import { Interface } from '@ethersproject/abi';
 import { MultichainProviders } from '../src';
 import Contract from './abi/PrizeDistributor.json';
 
-describe('getLogs', () => {
+describe.skip('getLogs', () => {
   it('should fetch event logs', async () => {
-    let client = new MultichainProviders();
+    let client = new MultichainProviders(1);
     const contract = new Interface(Contract.abi);
     const filter = {
       fromBlock: 14000122,
