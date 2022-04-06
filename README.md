@@ -1,4 +1,4 @@
-# ⛓️ Multichain Providers
+# ⛓️ MultiChain Providers
 
 ![CI](https://github.com/web3-systems/multichain-providers/actions/workflows/main.yml/badge.svg)
 ![TS](https://badgen.net/badge/-/TypeScript?icon=typescript&label&labelColor=blue&color=555555)
@@ -6,7 +6,7 @@
 [![Version](https://img.shields.io/npm/v/@web3-systems/multichain-providers.svg)](https://npmjs.org/package/@web3-systems/multichain-providers)
 [![Downloads/week](https://img.shields.io/npm/dw/@web3-systems/multichain-providers.svg)](https://npmjs.org/package/@web3-systems/multichain-providers)
 
-The `@web3-systems/multichain-providers` [node module](https://www.npmjs.com/package/@web3-systems/multichain-providers) is a MultiChain EVM Provider Client Library: managing multiple connections to `JsonRpcProvider` API endpoints.
+The `@web3-systems/multichain-providers` [node module](https://www.npmjs.com/package/@web3-systems/multichain-providers) is a MultiChain EVM Provider Client to manage read/write requests to public blockchains.
 
 👉🏾 👉 [**API Documentation**](https://web3-systems.github.io/multichain-providers) 👈🏻 👈🏾
 
