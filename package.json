@@ -44,7 +44,7 @@
   "devDependencies": {
     "@types/mocha": "^9.0.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "husky": "^7.0.4",
+    "husky": "^8.0.2",
     "prettier": "^1.19.1",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
