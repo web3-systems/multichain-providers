@@ -42,7 +42,7 @@
     "@ethersproject/providers": "^5.5.1"
   },
   "devDependencies": {
-    "@types/mocha": "^9.0.0",
+    "@types/mocha": "^10.0.1",
     "eslint-plugin-prettier": "^3.0.0",
     "husky": "^7.0.4",
     "prettier": "^1.19.1",
